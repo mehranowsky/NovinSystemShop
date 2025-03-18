@@ -12,7 +12,9 @@ namespace ModelLayer.Models
         [Required]
         public DateTime CreateDate { get; set; }
         [Required]
+        [MaxLength(20)]
         public int Sum { get; set; }
+        [MaxLength(10)]
         public string DiscountCode { get; set; }
         [Required]
         public bool IsFinally { get; set; }

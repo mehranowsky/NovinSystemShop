@@ -12,8 +12,10 @@ namespace ModelLayer.Models
         [Required]
         public int ProductId { get; set; }
         [Required]
+        [MaxLength(20)]
         public int Price { get; set; }
         [Required]
+        [MaxLength(10)]
         public int Count { get; set; }
         #region
         [ForeignKey("OrderId")]
