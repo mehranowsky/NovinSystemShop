@@ -3,25 +3,25 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelLayer.Models
 {
-    public class Order : BaseEntity
+    public class Order 
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         [Required]
         public DateTime CreateDate { get; set; }
         [Required]
-        [MaxLength(20)]
+        [Range(int.MinValue, 20)]
         public int Sum { get; set; }
         [MaxLength(10)]
         public string DiscountCode { get; set; }
         [Required]
         public bool IsFinally { get; set; }
         #region
-        [ForeignKey("UserId")]
+        [ForeignKey(nameof(UserId))]
         public User User { get; set; }
-        public ICollection<OrderDetail> OrderDetails { get; set; }
+        public ICollection<OrderEntity> OrderEntities { get; set; }
         #endregion
     }
 }

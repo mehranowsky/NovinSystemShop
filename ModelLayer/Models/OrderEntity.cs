@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelLayer.Models
 {
-    public class OrderDetail : BaseEntity
+    public class OrderEntity
     {
         [Key]
         public int Id { get; set; }
@@ -12,15 +12,15 @@ namespace ModelLayer.Models
         [Required]
         public int ProductId { get; set; }
         [Required]
-        [MaxLength(20)]
+        [Range(int.MinValue, 20)]
         public int Price { get; set; }
         [Required]
-        [MaxLength(10)]
+        [Range(int.MinValue, 10)]
         public int Count { get; set; }
         #region
-        [ForeignKey("OrderId")]
+        [ForeignKey(nameof(OrderId))]
         public Order Order { get; set; }
-        [ForeignKey("ProductId")]
+        [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; }
         #endregion
     }
